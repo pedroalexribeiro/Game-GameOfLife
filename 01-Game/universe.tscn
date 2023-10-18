@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1o53qpkdaf1a"]
+
+[ext_resource type="TileSet" uid="uid://bv6wntc5tp8cb" path="res://01-Game/universe_tileset.tres" id="1_6ucfv"]
+[ext_resource type="Script" path="res://01-Game/Universe.cs" id="1_ntjot"]
+
+[node name="Tilemap" type="TileMap"]
+tile_set = ExtResource("1_6ucfv")
+cell_quadrant_size = 8
+format = 2
+script = ExtResource("1_ntjot")

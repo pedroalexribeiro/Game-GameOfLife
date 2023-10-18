@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bv6wntc5tp8cb"]
+
+[ext_resource type="Texture2D" uid="uid://cbu88yv5er6sb" path="res://02-Art/black_box.png" id="1_t10ky"]
+[ext_resource type="Texture2D" uid="uid://c085xwy3d0w34" path="res://02-Art/white_box.png" id="2_mjrd3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0l2n"]
+resource_name = "Dead"
+texture = ExtResource("1_t10ky")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8146w"]
+resource_name = "Alive"
+texture = ExtResource("2_mjrd3")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_g0l2n")
+sources/1 = SubResource("TileSetAtlasSource_8146w")
