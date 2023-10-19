@@ -13,12 +13,27 @@ public partial class UI : CanvasLayer
     [Export]
     private GameManager _gameManager;
 
+    [Export]
+    private HSlider _speedSlider;
+
     public override void _Ready()
     {
         base._Ready();
         _playButton.ButtonDown += OnPlayButtonPressed;
         _stepButton.ButtonDown += OnStepButtonPressed;
         _clearButton.ButtonDown += OnClearButtonPressed;
+        _speedSlider.ValueChanged += onSpeedSliderChange;
+
+        bool isGamePaused = _gameManager.IsGamePaused();
+        if (isGamePaused)
+            _playButton.Text = "Play";
+        else
+            _playButton.Text = "Pause";
+    }
+
+    private void onSpeedSliderChange(double value)
+    {
+        _gameManager.ChangeSpeed((int)value);
     }
 
     private void OnClearButtonPressed()
@@ -33,6 +48,10 @@ public partial class UI : CanvasLayer
 
     private void OnPlayButtonPressed()
     {
-        _gameManager.PlayPauseGame();
+        bool isGamePaused = _gameManager.PlayPauseGame();
+        if (isGamePaused)
+            _playButton.Text = "Play";
+        else
+            _playButton.Text = "Pause";
     }
 }

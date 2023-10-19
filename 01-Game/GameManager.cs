@@ -7,10 +7,16 @@ namespace Godot.GameOfLife
     public partial class GameManager : Node2D
     {
         [Export]
-        public Universe _universe;
-        public void PlayPauseGame()
+        public UniTilemap _universe;
+        public bool PlayPauseGame()
         {
             _universe.Paused = !_universe.Paused;
+            return _universe.Paused;
+        }
+
+        public bool IsGamePaused()
+        {
+            return _universe.Paused;
         }
 
         public void Step()
@@ -20,7 +26,13 @@ namespace Godot.GameOfLife
 
         public void Clear()
         {
-            // Reset Universe
+            _universe.ClearUniverse();
+
+        }
+
+        public void ChangeSpeed(int speed)
+        {
+            _universe.SimSpeed = speed;
         }
     }
 }
